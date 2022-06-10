@@ -1,4 +1,6 @@
 import { nanoid } from 'nanoid';
+import s from './ContactList.module.css';
+import PropTypes from 'prop-types';
 
 const ContactList = ({ contacts, filter, onDeleteContact }) => {
   const filteredContacts = contacts.filter(item =>
@@ -10,14 +12,14 @@ const ContactList = ({ contacts, filter, onDeleteContact }) => {
   // };
 
   return (
-    <ul className="contactList">
+    <ul className={s.contactList}>
       {filteredContacts.map(contact => (
-        <li className="contactInfo" key={nanoid()}>
+        <li className={s.contactInfo} key={nanoid()}>
           {contact.name}: {contact.number}
           <button
             type="button"
-            className="deleteBtn"
-            data-id={id}
+            className={s.deleteBtn}
+            // data-id={id}
             // onClick={onDeleteContact}
           >
             Delete
@@ -26,6 +28,11 @@ const ContactList = ({ contacts, filter, onDeleteContact }) => {
       ))}
     </ul>
   );
+};
+
+ContactList.propTypes = {
+  contacts: PropTypes.array.isRequired,
+  filter: PropTypes.string.isRequired,
 };
 
 export default ContactList;

@@ -1,0 +1,32 @@
+.contactList {
+  background-color: teal;
+  padding: 20px 20px 0 20px;
+  border-radius: 6px;
+  margin: 0;
+}
+
+.contactInfo {
+  display: flex;
+  justify-content: space-between;
+  color: white;
+}
+
+.contactInfo:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.deleteBtn {
+  /* max-width: 140px; */
+  padding: 5px 10px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  background-color: gainsboro;
+  transition: 200ms;
+  margin-left: 20px;
+}
+
+.deleteBtn:focus,
+.deleteBtn:hover {
+  background-color: white;
+}

@@ -1,7 +1,13 @@
 import { Component } from 'react';
 import { nanoid } from 'nanoid';
+import s from './ContactForm.module.css';
+import PropTypes from 'prop-types';
 
 class ContactForm extends Component {
+  static propTypes = {
+    onSubmit: PropTypes.func.isRequired,
+  };
+
   state = {
     name: '',
     number: '',
@@ -34,10 +40,11 @@ class ContactForm extends Component {
     const inputTelId = nanoid();
 
     return (
-      <form onSubmit={this.handleSubmit}>
-        <label htmlFor={inputNameId}>
+      <form className={s.contactForm} onSubmit={this.handleSubmit}>
+        <label className={s.label} htmlFor={inputNameId}>
           Name
           <input
+            className={s.input}
             id={inputNameId}
             value={name}
             type="text"
@@ -48,8 +55,10 @@ class ContactForm extends Component {
             onChange={this.handleInputChange}
           />
         </label>
-        <label htmlFor={inputTelId}>
+        <label className={s.label} htmlFor={inputTelId}>
+          Phone number
           <input
+            className={s.input}
             id={inputTelId}
             value={number}
             type="tel"
@@ -61,7 +70,9 @@ class ContactForm extends Component {
           />
         </label>
 
-        <button type="submit">Add contact</button>
+        <button className={s.submitBtn} type="submit">
+          Add contact
+        </button>
       </form>
     );
   }
