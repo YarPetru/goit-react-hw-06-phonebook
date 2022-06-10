@@ -38,6 +38,10 @@ export class App extends Component {
       }));
   };
 
+  // deleteContact = () => {
+
+  // };
+
   render() {
     const { contacts, filter } = this.state;
 
@@ -48,7 +52,11 @@ export class App extends Component {
         </Section>
         <Section title="Contacts">
           <Filter filter={filter} onInputChange={this.handleInputChange} />
-          <ContactList contacts={contacts} filter={filter} />
+          <ContactList
+            contacts={contacts}
+            filter={filter}
+            // onDeleteContact={this.deleteContact}
+          />
         </Section>
       </>
     );
