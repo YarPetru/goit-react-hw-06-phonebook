@@ -7,10 +7,6 @@ const ContactList = ({ contacts, filter, onDeleteContact }) => {
     item.name.toLowerCase().startsWith(filter)
   );
 
-  // onDeleteContact = () => {
-  //   const updtdList = contacts.filter(contact => contact.key !== );
-  // };
-
   return (
     <ul className={s.contactList}>
       {filteredContacts.map(contact => (
@@ -19,8 +15,7 @@ const ContactList = ({ contacts, filter, onDeleteContact }) => {
           <button
             type="button"
             className={s.deleteBtn}
-            // data-id={id}
-            // onClick={onDeleteContact}
+            onClick={() => onDeleteContact(contact.id)}
           >
             Delete
           </button>
