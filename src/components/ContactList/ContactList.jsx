@@ -11,7 +11,9 @@ const ContactList = ({ contacts, filter, onDeleteContact }) => {
     <ul className={s.contactList}>
       {filteredContacts.map(contact => (
         <li className={s.contactInfo} key={nanoid()}>
-          {contact.name}: {contact.number}
+          <div className={s.contact}>
+            {contact.name}: {contact.number}
+          </div>
           <button
             type="button"
             className={s.deleteBtn}

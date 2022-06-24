@@ -10,6 +10,7 @@
 }
 
 .label {
+  font-size: 20px;
   color: white;
 }
 
@@ -17,6 +18,11 @@
   margin-left: 20px;
   border-radius: 4px;
   border: none;
+  box-shadow: var(--input-shadow);
+  font-family: 'Patrick Hand', cursive;
+  font-weight: 500;
+  font-size: 16px;
+  color: var(--additional-text-color);
 }
 
 .submitBtn {
@@ -25,11 +31,19 @@
   border-radius: 4px;
   border: none;
   cursor: pointer;
-  background-color: gainsboro;
+
+  font-family: 'Patrick Hand', cursive;
+  font-weight: 500;
+  font-size: 16px;
+  color: var(--additional-text-color);
+  background-color: var(--btn-color);
+  box-shadow: var(--btn-shadow);
+
   transition: 200ms;
 }
 
 .submitBtn:focus,
 .submitBtn:hover {
-  background-color: white;
+  background-color: var(--active-btn-color);
+  box-shadow: var(--active-btn-shadow);
 }

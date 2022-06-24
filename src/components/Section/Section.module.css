@@ -4,18 +4,21 @@
   margin: 0 auto;
   text-align: center;
   border-radius: 6px;
-  color: whitesmoke;
+  color: var(--main-text-color);
   margin-top: 10px;
+  box-shadow: var(--box-shadow);
 }
 
-h2 {
+.title {
   margin: 0;
+  color: var(--additional-text-color);
+  font-weight: 400;
 }
 
 section:nth-child(2n-1) {
-  background-color: darkcyan;
+  background-color: var(--main-color);
 }
 
 section:nth-child(2n) {
-  background-color: teal;
+  background-color: var(--additional-color);
 }
