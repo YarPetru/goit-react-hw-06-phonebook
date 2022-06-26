@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 
 const Filter = ({ onInputChange, filter }) => {
   const inputFilterId = nanoid();
+
   return (
     <div className={s.filterWrapper}>
       <label className={s.label} htmlFor={inputFilterId}>
