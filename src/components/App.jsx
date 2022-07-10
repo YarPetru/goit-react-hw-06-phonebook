@@ -1,7 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import { nanoid } from 'nanoid';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux/es/exports';
+// import { nanoid } from 'nanoid';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import * as actions from '../redux/actions';
 
 import Section from './Section';
 import ContactForm from './ContactForm';
@@ -9,14 +11,12 @@ import ContactList from './ContactList';
 import Filter from './Filter';
 
 export const App = () => {
-  const [contacts, setContacts] = useState([
-    { id: 'id-1', name: 'Rosie Simpson', number: '459-12-56' },
-    { id: 'id-2', name: 'Hermione Kline', number: '443-89-12' },
-    { id: 'id-3', name: 'Eden Clements', number: '645-17-79' },
-    { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
-  ]);
-  const [filter, setFilter] = useState('');
+  const contacts = useSelector(state => state.items);
+  const filter = useSelector(state => state.filter);
 
+  const dispatch = useDispatch();
+
+  // --------------------- LocalStorage - доделать
   // componentDidMount
   useEffect(() => {
     const localContacts = JSON.parse(
@@ -24,37 +24,39 @@ export const App = () => {
     );
     // console.log(localContacts);
     if (localContacts) {
-      setContacts(localContacts);
+      // setContacts(localContacts);
     } else return;
   }, []);
 
-  // componentDidUpdate
+  // componentDidUpdate -
   useEffect(() => {
     localStorage.setItem('actual_contact_list', JSON.stringify(contacts));
   }, [contacts]);
+  // ---------------------
 
   const handleInputChange = e => {
     e.preventDefault();
     const { value } = e.currentTarget;
-    setFilter(value);
+    dispatch(actions.changeFilter(value));
+    // console.log(actions.changeFilter(value));
   };
-
+  // ------------ addContacts новый
   const addContacts = ({ name, number }) => {
     const currentNames = contacts.map(contact => contact.name.toLowerCase());
-    const contact = { name, number, id: nanoid() };
-    // console.log(contact);
-    // console.log(currentNames);
 
     currentNames.includes(name.toLowerCase()) &&
       toast.info('You already have this contact');
 
     !currentNames.includes(name.toLowerCase()) &&
-      setContacts(prev => [contact, ...prev]);
+      dispatch(actions.addContact(name, number));
+    // console.log('Это лог в эдконтактс', actions.addContact());
   };
 
+  // ------------ deleteContacts новый
   const deleteContact = id => {
-    setContacts(contacts.filter(contact => contact.id !== id));
-    console.log(`delete contact with id: ${id}`);
+    dispatch(actions.deleteContact(id));
+    // console.log('Это лог в делитконтактс', actions.deleteContact(id));
+    // console.log(`delete contact with id: ${id}`);
   };
 
   return (
@@ -74,3 +76,21 @@ export const App = () => {
     </>
   );
 };
+
+// // ------------ addContacts старый
+// const addContacts = ({ name, number }) => {
+//   const currentNames = contacts.map(contact => contact.name.toLowerCase());
+//   const contact = { name, number, id: nanoid() };
+
+//   currentNames.includes(name.toLowerCase()) &&
+//     toast.info('You already have this contact');
+
+//   !currentNames.includes(name.toLowerCase()) &&
+//     setContacts(prev => [contact, ...prev]);
+// };
+
+// // ------------ deleteContacts старый
+// const deleteContact = id => {
+//   setContacts(contacts.filter(contact => contact.id !== id));
+//   console.log(`delete contact with id: ${id}`);
+// };

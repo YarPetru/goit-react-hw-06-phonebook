@@ -5,14 +5,14 @@
   text-align: center;
   border-radius: 6px;
   color: var(--main-text-color);
-  margin-top: 10px;
+  margin-top: 20px;
   box-shadow: var(--box-shadow);
 }
 
 .title {
   margin: 0;
   color: var(--additional-text-color);
-  font-weight: 400;
+  font-weight: 600;
 }
 
 section:nth-child(2n-1) {
