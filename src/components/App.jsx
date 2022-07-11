@@ -1,10 +1,10 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux/es/exports';
 // import { nanoid } from 'nanoid';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import * as actions from '../redux/actions';
 
+import * as actions from '../redux/actions';
 import Section from './Section';
 import ContactForm from './ContactForm';
 import ContactList from './ContactList';
@@ -16,30 +16,13 @@ export const App = () => {
 
   const dispatch = useDispatch();
 
-  // --------------------- LocalStorage - доделать
-  // componentDidMount
-  useEffect(() => {
-    const localContacts = JSON.parse(
-      localStorage.getItem('actual_contact_list')
-    );
-    // console.log(localContacts);
-    if (localContacts) {
-      // setContacts(localContacts);
-    } else return;
-  }, []);
-
-  // componentDidUpdate -
-  useEffect(() => {
-    localStorage.setItem('actual_contact_list', JSON.stringify(contacts));
-  }, [contacts]);
-  // ---------------------
-
   const handleInputChange = e => {
     e.preventDefault();
     const { value } = e.currentTarget;
     dispatch(actions.changeFilter(value));
     // console.log(actions.changeFilter(value));
   };
+
   // ------------ addContacts новый
   const addContacts = ({ name, number }) => {
     const currentNames = contacts.map(contact => contact.name.toLowerCase());

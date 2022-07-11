@@ -15,7 +15,3 @@ export const addContact = createAction(
 export const deleteContact = createAction('contacts/delete_contact');
 
 export const changeFilter = createAction('contacts/filter_contacts');
-
-// console.log(addContact('100'));
-
-// console.log(deleteContact('100'));

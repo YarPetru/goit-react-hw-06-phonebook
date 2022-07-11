@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 const ContactList = ({ contacts, filter, onDeleteContact }) => {
   const filteredContacts = contacts.filter(item =>
-    item.name.toLowerCase().startsWith(filter)
+    item.name.toLowerCase().startsWith(filter.toLowerCase())
   );
 
   return (

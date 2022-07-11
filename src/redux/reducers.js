@@ -10,14 +10,19 @@ const items = createReducer(
     { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
   ],
   {
-    [addContact]: (state, { payload }) => [payload, ...state],
-    [deleteContact]: (state, { payload }) =>
-      state.filter(contacts => !contacts.id.includes(payload)),
+    [addContact]: (state, { payload }) => {
+      return [payload, ...state];
+    },
+    [deleteContact]: (state, { payload }) => {
+      return state.filter(contacts => !contacts.id.includes(payload));
+    },
   }
 );
 
 const filter = createReducer('', {
-  [changeFilter]: (_, { payload }) => payload,
+  [changeFilter]: (_, { payload }) => {
+    return payload;
+  },
 });
 
 export default combineReducers({
