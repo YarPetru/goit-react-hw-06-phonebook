@@ -46,6 +46,7 @@
 .submitBtn:hover {
   background-color: var(--active-btn-color);
   box-shadow: var(--active-btn-shadow);
+  color: var(--active-btn-text-color);
 }
 
 .wrapper {

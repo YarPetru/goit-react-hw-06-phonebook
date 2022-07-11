@@ -24,13 +24,22 @@ code {
     rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
   --active-btn-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px,
     rgba(0, 0, 0, 0.24) 0px 1px 2px;
-  --input-shadow: rgb(163, 163, 163) 3px 3px 6px 0px inset,
-    rgba(201, 201, 201, 0.5) -3px -3px 6px 1px inset;
-  --main-color: #c9c9c9;
-  --additional-color: #c9c9c9;
-  --btn-color: #a3a3a3;
-  --active-btn-color: #feffea;
-  --main-text-color: #424242;
-  --additional-text-color: #424242;
-  --accent-color: #fcfc62;
+  --input-shadow: rgb(160, 158, 177) 3px 3px 6px 0px inset,
+    rgba(160, 158, 177, 0.3) -3px -3px 6px 1px inset;
+  --main-color: #fefcfd;
+  --additional-color: #fefcfd;
+  --btn-color: #bfcde0;
+  --active-btn-color: #5d5d81;
+  --main-text-color: #5d5d81;
+  --additional-text-color: #3b3355;
+  /* --accent-color: #fcfc62; */
+  --active-btn-text-color: #fefcfd;
 }
+
+/* --main-color: #c9c9c9;
+--additional-color: #c9c9c9;
+--btn-color: #a3a3a3;
+--active-btn-color: #feffea;
+--main-text-color: #424242;
+--additional-text-color: #424242;
+--accent-color: #fcfc62; */
